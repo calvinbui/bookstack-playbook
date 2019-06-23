@@ -4,8 +4,9 @@ bookstack_name: bookstack
 bookstack_image: linuxserver/bookstack
 bookstack_ports:
   - 80:80
+bookstack_config_directory: "{{ common_directory_config }}/bookstack"
 bookstack_volumes:
-  - "{{ common_directory_config }}/bookstack:/config"
+  - "{{ bookstack_config_directory}}:/config"
 bookstack_environment_variables:
   PUID: "{{ common_user_id }}"
   PGID: "{{ common_group_id }}"
@@ -17,3 +18,8 @@ bookstack_environment_variables:
 bookstack_docker_additional_options:
   restart_policy: unless-stopped
   networks: "{{ docker_networks }}"
+
+bookstack_env_options:
+  - WKHTMLTOPDF=/usr/bin/wkhtmltopdf
+  - DRAWIO=true
+  - APP_TIMEZONE=Australia/Sydney
