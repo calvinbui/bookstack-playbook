@@ -1,0 +1,19 @@
+---
+
+bookstack_name: bookstack
+bookstack_image: linuxserver/bookstack
+bookstack_ports:
+  - 80:80
+bookstack_volumes:
+  - "{{ common_directory_config }}/bookstack:/config"
+bookstack_environment_variables:
+  PUID: "{{ common_user_id }}"
+  PGID: "{{ common_root_group }}"
+  DB_HOST: "{{ mariadb_name }}"
+  DB_USER: "{{ mariadb_environment_variables.MYSQL_USER }}"
+  DB_PASS: "{{ mariadb_environment_variables.MYSQL_PASSWORD }}"
+  DB_DATABASE: "{{ mariadb_environment_variables.MYSQL_DATABASE }}"
+
+bookstack_docker_additional_options:
+  restart_policy: unless-stopped
+  networks: "{{ docker_networks }}"
