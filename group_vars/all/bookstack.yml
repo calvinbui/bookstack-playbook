@@ -23,3 +23,7 @@ bookstack_env_options:
   - WKHTMLTOPDF=/usr/bin/wkhtmltopdf
   - DRAWIO=true
   - APP_TIMEZONE=Australia/Sydney
+
+bookstack_php_options:
+  - post_max_size=10M
+  - upload_max_filesize=10M
