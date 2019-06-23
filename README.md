@@ -1,3 +1,3 @@
-# XSIBackup Playbook
+# Bookstack Playbook
 
-Installs and configures XSIBackup
+Installs and configures Bookstack
